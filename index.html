@@ -179,6 +179,90 @@ Camera No. :- 1 to 50
 <span class="kvms">Smart PSS</span>
 </div>
 
+  <div class="section">
+
+<div class="section-title">
+<div class="section-title"><H3><b>🚨 IMP Note</b></H3></div>
+</div>
+
+
+<button onclick="openVideo()" style="
+padding:12px 20px;
+background:#d60000;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+margin-top:10px;
+">
+▶ View Evidence
+</button>
+
+
+<div style="background:#f4f6f9; padding:12px; border:1px solid #ccc; margin:10px;">
+    
+<div>
+
+<span id="alertText">
+<b>🚨 Attention:</b> 
+Please check the quick captured image of suspicious activity.
+The video footage will be shared shortly.
+</span>
+
+<br><br>
+
+<button id="copyBtn" onclick="copyText()">📋 Copy Message</button>
+
+</div>
+
+
+</div>
+
+<div class="rule"></div>
+
+</div>
+
+<div id="videoModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:999;
+">
+
+<div style="
+background:white;
+padding:20px;
+border-radius:10px;
+width:80%;
+max-width:800px;
+position:relative;
+">
+
+<span onclick="closeVideo()" style="
+position:absolute;
+top:10px;
+right:15px;
+font-size:24px;
+cursor:pointer;
+color:#333;
+">&times;</span>
+
+<h3>📹 Evidence Video</h3>
+
+<video width="100%" controls>
+<source src="PASTE-YOUR-VIDEO-LINK-HERE" type="video/mp4">
+</video>
+
+
+</div>
+
 
 <!-- Security Guard Monitoring -->
 
@@ -734,6 +818,44 @@ General Security Alerts
 
 
 </div>
+
+  <script>
+
+function openVideo(){
+document.getElementById("videoModal").style.display = "flex";
+}
+
+function closeVideo(){
+document.getElementById("videoModal").style.display = "none";
+}
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+
+return new bootstrap.Tooltip(tooltipTriggerEl)
+
+})
+
+function copyText(){
+let text = document.getElementById("alertText").innerText;
+
+navigator.clipboard.writeText(text);
+
+document.getElementById("copyBtn").innerText = "✅ Copied!";
+}
+
+document.getElementById("videoModal").addEventListener("click", function(e){
+if(e.target === this){
+closeVideo();
+}
+});
+
+</script>
 
 </body>
 </html>
