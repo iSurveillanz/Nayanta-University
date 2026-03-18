@@ -819,71 +819,36 @@ General Security Alerts
 
 </div>
 
-  <script>
-
-function openVideo(){
-document.getElementById("videoModal").style.display = "flex";
-}
-
-function closeVideo(){
-document.getElementById("videoModal").style.display = "none";
-}
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-
-return new bootstrap.Tooltip(tooltipTriggerEl)
-
-})
-
-function copyText(){
-let text = document.getElementById("alertText").innerText;
-
-navigator.clipboard.writeText(text);
-
-document.getElementById("copyBtn").innerText = "✅ Copied!";
-}
-
-document.getElementById("videoModal").addEventListener("click", function(e){
-if(e.target === this){
-closeVideo();
-}
-});
-
-    <!-- Bootstrap JS (Correct Placement) -->
+ <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 
+// Open Video Modal
 function openVideo(){
-document.getElementById("videoModal").style.display = "flex";
+    document.getElementById("videoModal").style.display = "flex";
 }
 
+// Close Video Modal
 function closeVideo(){
-document.getElementById("videoModal").style.display = "none";
+    document.getElementById("videoModal").style.display = "none";
 }
 
+// Copy Alert Text
 function copyText(){
-let text = document.getElementById("alertText").innerText;
-
-navigator.clipboard.writeText(text);
-
-document.getElementById("copyBtn").innerText = "✅ Copied!";
+    let text = document.getElementById("alertText").innerText;
+    navigator.clipboard.writeText(text);
+    document.getElementById("copyBtn").innerText = "✅ Copied!";
 }
 
+// Close modal on outside click
 document.getElementById("videoModal").addEventListener("click", function(e){
-if(e.target === this){
-closeVideo();
-}
+    if(e.target === this){
+        closeVideo();
+    }
 });
 
-
 </script>
-
+  
 </body>
 </html>
